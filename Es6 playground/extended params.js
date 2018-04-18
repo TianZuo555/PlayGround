@@ -1,5 +1,4 @@
 var extend = (...params)=>{
-    console.log(...params);
     console.log(Math.max(...params));
 }
 
