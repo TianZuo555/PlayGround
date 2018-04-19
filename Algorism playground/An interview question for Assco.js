@@ -4,8 +4,8 @@
  
 //The output should be  
 //-Ian CEO 2007
- //	-Tom Technical lead 2009
-    //-Fred Developer 2010
+//  -Tom Technical lead 2009
+//    -Fred Developer 2010
 
 
  var input = "Tom, Ian, Technical Lead, 2009 | Ian, NULL, CEO,2007| Fred, Tom, Developer, 2010 | Tian,NULL, Consultant,2017 ";
