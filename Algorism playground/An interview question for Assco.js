@@ -1,46 +1,66 @@
-var input = "Tom, Ian, Technical Lead, 2009 | Ian, NULL, CEO,2007| Fred, Tom, Developer, 2010";
+//Sample input = Tom, Ian, Technical Lead, 2009 | Ian, NULL, CEO,2007| Fred, Tom, Developer, 2010
 
-function getFormatedString(string) {
-  let unformatString = input.split("|");
-  let pplArray = [];
+//The format is name, supervisor, designation, year of joining
+ 
+//The output should be  
+//-Ian CEO 2007
+ //	-Tom Technical lead 2009
+    //-Fred Developer 2010
 
-  unformatString.forEach(element => {
-    let ppl = new staff(element);
-    pplArray.push(ppl);
+
+ var input = "Tom, Ian, Technical Lead, 2009 | Ian, NULL, CEO,2007| Fred, Tom, Developer, 2010 | Tian,NULL, Consultant,2017 ";
+
+const processString = (str)=>{
+  let unformatString = input.split('|');
+  //store all ppl in array 
+  let pplArray =[];
+
+  unformatString.forEach((person)=>{
+    let personStrArr = person.split(',');
+    pplArray.push(new Person(personStrArr[0].trim(),personStrArr[2].trim(),personStrArr[3].trim(),personStrArr[1].trim()));
   });
 
-  pplArray = pplArray.sort(function (a, b) {
-    return a.piority - b.piority;
-  })
+  let formatArr= getFormatedArray(pplArray);
 
-  let frontText='';
+  displayPPL(formatArr);
+};
 
-  for(i=0; i<pplArray.length;i ++){
-    if (i>0)
-      frontText += "          ";
-    console.log(frontText + "-" + pplArray[i].getDisplayed());
+class Person{
+  constructor(name,designation,joinYear,supervisor){
+    this.name = name;
+    this.designation  = designation;
+    this.joinYear = joinYear;
+    this.supervisor = supervisor;
   }
 }
 
-function staff(str) {
-  let elements = str.split(',');
-  this.firstName = elements[0].trim();
-  this.lastName = elements[1].trim();
-  this.title = elements[2].trim();
-  this.year = elements[3].trim();
-  this.piority = piorities[this.title];
+const findChildren = (person, pplArray) =>{
+  return pplArray.find(p=>p.supervisor === person.name);
 }
 
-var piorities = {
-  'CEO' : 1,
-  'Technical Lead' : 2,
-  'Developer' : 3
+const getFormatedArray = (arr) =>{
+  let formatArr = []; 
+  topLevelPPL = arr.filter(p=>p.supervisor ==="NULL");
+  
+  topLevelPPL.forEach((person)=>{
+    formatArr.push(person);
+    var child = person;
+    while(findChildren(child,arr))
+    {
+      child = findChildren(child,arr);
+      formatArr.push(child);    
+    }
+  })
+
+  return formatArr;
 }
 
-staff.prototype.getDisplayed = function () {
-  let displayName;
-  this.firstName == null ? displayName = this.lastName : displayName = this.firstName;
-  return displayName + ' ' + this.title + ' ' + this.year;
+const displayPPL = (arr) => {
+  let levelString="";
+  arr.forEach((person)=>{
+    person.supervisor === "NULL" ? levelString = "" : levelString += "    ";
+    console.log(levelString + "-" + person.name + " " + person.designation + " " + person.joinYear);
+  })  
 }
 
-getFormatedString(input);
+processString(input);
