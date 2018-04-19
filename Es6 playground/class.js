@@ -33,4 +33,3 @@ class Chicken extends Bird{
 var chicken = new Chicken();
 chicken.name();
 chicken.fly();
-
