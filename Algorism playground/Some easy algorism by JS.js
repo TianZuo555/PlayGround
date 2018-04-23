@@ -1,1 +1,17 @@
-//algorism from freecodecamp
+//algorisms from freecodecamp
+//1 reverse a string 
+
+let reverseString = (str) =>{
+    console.log(str.split("").reverse().join(""));
+}
+
+reverseString("hello");
+
+//2. Return the factorial of the provided integer.
+
+// If the integer is represented with the letter n, a factorial is the product of all positive integers less than or equal to n.
+
+// Factorials are often represented with the shorthand notation n!
+
+// For example: 5! = 1 * 2 * 3 * 4 * 5 = 120
+
