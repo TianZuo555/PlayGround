@@ -92,29 +92,29 @@ console.log(titleCase("test for title case"));
 function findLargestNumber(...params) {
     let result = [];
     params.forEach(arr => {
-        result.push ( Math.max(...arr));
+        result.push(Math.max(...arr));
     });
     return result;
 }
 
 console.log(findLargestNumber([4, 5, 1, 3], [13, 27, 18, 26], [32, 35, 37, 39], [1000, 1001, 857, 1]));
 
-function endWith(str,target){
+function endWith(str, target) {
     // es6 str.endWith(target)
-  return target ==  str.substring(str.length-1,str.length);  
+    return target == str.substring(str.length - 1, str.length);
 }
 
-console.log(endWith("test","t"));
+console.log(endWith("test", "t"));
 
 //Repeat a given string (first argument) num times (second argument). Return an empty string if num is not a positive number.
 
-function repeatString(str, num){
-    let result="";
-    for (let i=0; i< num ; i++){
+function repeatString(str, num) {
+    let result = "";
+    for (let i = 0; i < num; i++) {
         result += str;
     }
     return result;
 }
 
-console.log(repeatString("abc",3));
+console.log(repeatString("abc", 3));
 
