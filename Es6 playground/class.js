@@ -33,3 +33,24 @@ class Chicken extends Bird{
 var chicken = new Chicken();
 chicken.name();
 chicken.fly();
+
+// class in ES6 is a unique kind of function 
+
+console.log(typeof Chicken);
+
+let cellPhone = class{
+    constructor(){}
+ },
+cellPhone2 = class randomPhone{ 
+    constructor(){ this.battery = 0; }
+};
+console.log(cellPhone.name); //cellPhone
+console.log(cellPhone2.name); //randomPhone
+
+
+
+class Person {
+
+}
+
+console.log(typeof Person);
