@@ -25,19 +25,34 @@ const promise4 = new Promise((resolve, reject) => {
 let promiseArray = [];
 
 const excutePromiseAll = (...promises) => {
-    console.time();
+    console.time('promise all');
     const promisesArr = Promise.all(promises);
     promisesArr.then((results) => {
         console.log(results);
         //[ 'foo', 'foo2', 'foo3' ]
-        console.timeEnd();
+        console.timeEnd('promise all');
         // time 7s 
     }).catch((error) => {
         console.log(error);
         //['foo4']
-        console.timeEnd();
+        console.timeEnd('promise all');
         // time 1s 
     });
 }
 
+const excutePromiseRace = (...promises)=>{
+    const promiseArr = Promise.race(promises);
+    console.time('race')
+    promiseArr.then((result)=>{
+        console.log(result);
+        console.timeEnd('race');
+        // 1s, the first out 
+    })
+}
+
+
 excutePromiseAll(promise1, promise2, promise3 , promise4);
+
+excutePromiseRace(promise1,promise2,promise3);
+
+
