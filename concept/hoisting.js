@@ -20,7 +20,7 @@ console.log(b);
 
 'use strict';
 
-hoist = 'Hoisted'; 
+hoist = 'Hoisted';
 
 
 console.log(hoist); // Output: ReferenceError: hoist is not defined ...
@@ -31,18 +31,18 @@ const hoist = 'The variable has been hoisted.';
 
 a(10)
 
-function a(num){
+function a(num) {
     console.log(num);
 }
 
 b(10)
 
-var b = function(num){
+var b = function (num) {
     console.log(num);
 }
 
 var a = 10;
-function a (){
+function a() {
     return 20;
 }
 
@@ -54,10 +54,10 @@ Frodo.weight = 300;
 console.log(Frodo); // Output: ReferenceError: Hobbit is not defined
 
 class Hobbit {
-  constructor(height, weight) {
-    this.height = height;
-    this.weight = weight;
-  }
+    constructor(height, weight) {
+        this.height = height;
+        this.weight = weight;
+    }
 }
 
 function testOrder(arg) {
@@ -70,5 +70,5 @@ function testOrder(arg) {
     } // 被提升到作用域顶部
     console.log(a); // 输出10
     console.log(arg); // 输出hello
-}; 
+};
 testOrder('hi');
