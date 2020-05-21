@@ -1,0 +1,25 @@
+{
+  "name": "playground",
+  "version": "1.0.0",
+  "description": "play ground ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "runDS": "yarn ts-node JS/dataStructure/index.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TianZuo555/PlayGround.git"
+  },
+  "author": "tian",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TianZuo555/PlayGround/issues"
+  },
+  "homepage": "https://github.com/TianZuo555/PlayGround#readme",
+  "dependencies": {
+    "node": "^14.2.0",
+    "ts-node": "^8.10.1",
+    "typescript": "^3.9.3"
+  }
+}
